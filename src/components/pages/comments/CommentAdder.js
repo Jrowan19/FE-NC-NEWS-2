@@ -8,9 +8,9 @@ class CommentAdder extends Component {
     const { body } = this.state;
 
     return (
-      <form className="row mx-auto Home bg-light" onSubmit={this.handleSubmit}>
-        <div className="form-group mx-auto" style={{ width: '50rem' }}>
-          <span className="badge badge-primary badge badge-lg mt-4">
+      <form className="row mx-auto Home nightBg" onSubmit={this.handleSubmit}>
+        <div className="form-group mx-auto nightBg" style={{ width: '50rem' }}>
+          <span className="badge badge-light badge badge-lg mt-4 text-dark">
             Comments
           </span>
 

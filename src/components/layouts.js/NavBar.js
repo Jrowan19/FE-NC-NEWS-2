@@ -3,7 +3,7 @@ import { Link } from '@reach/router';
 
 const NavBar = props => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light nav-background fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-light nav-background fixed-top border border-nav-border">
       <form className="form-row align-items-center mb-2">
         <div className="dropdown ml-3 mt-3 mb-2">
           <select
@@ -22,12 +22,17 @@ const NavBar = props => {
           <i className="fas fa-user" /> Logged in as {props.username}
         </p>
       </form>
+
       <Link
         className="navbar-brand text-danger m-5 text-right font-weight-bold"
         to="/"
       >
-        NC News
+        <button className="btn btn-outline-primary">
+          {' '}
+          <i class="fas fa-home"></i> NC News
+        </button>
       </Link>
+
       <button
         className="navbar-toggler btn btn-light m-2 btn btn-lg"
         type="button"
@@ -47,7 +52,7 @@ const NavBar = props => {
               className="nav-link text-white font-weight-bold"
               to="/articles"
             >
-              Home
+              <button className="btn btn-outline-danger"> Articles </button>
             </Link>
           </li>
           <li className="nav-item">
@@ -55,7 +60,7 @@ const NavBar = props => {
               className="nav-link text-white font-weight-bold"
               to="/topics/coding"
             >
-              Coding
+              <button className="btn btn-outline-warning"> Coding </button>
             </Link>
           </li>
           <li className="nav-item">
@@ -63,7 +68,7 @@ const NavBar = props => {
               className="nav-link text-white font-weight-bold"
               to="/topics/football"
             >
-              Football
+              <button className="btn btn-outline-primary"> Football</button>
             </Link>
           </li>
           <li className="nav-item">
@@ -71,7 +76,7 @@ const NavBar = props => {
               className="nav-link text-white font-weight-bold"
               to="/topics/cooking"
             >
-              Cooking
+              <button className="btn btn-outline-success"> Cooking </button>
             </Link>
           </li>
           <li className="nav-item dropdown">
@@ -84,7 +89,7 @@ const NavBar = props => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Topics
+              <button className="btn btn-outline-danger"> Topics</button>
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item " to="/topics">
@@ -101,7 +106,7 @@ const NavBar = props => {
             aria-label="Search"
           />
           <button
-            className="btn btn-outline-success my-2 my-sm-0"
+            className="btn btn-outline-light my-2 my-sm-0 m-2"
             type="submit"
           >
             Search

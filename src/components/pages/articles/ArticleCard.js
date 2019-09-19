@@ -14,7 +14,7 @@ const ArticleCard = props => {
   return (
     <section className="row mt-3 card-padding">
       <div
-        className="card text-center mb-2 mx-auto border border-secondary "
+        className="card text-center mb-2 mx-auto border border-light text-white nightBg"
         style={{ width: '40rem' }}
       >
         <div className="card-header text-uppercase">
@@ -25,16 +25,15 @@ const ArticleCard = props => {
           <p className="card-text"> {topic}</p>
           <p className="card-text">Votes: {votes}</p>
           <p className="card-text">Comment Count: {comment_count}</p>
-          <Link
-            to={`/article/${article_id}`}
-            className="btn btn-secondary text-white"
-          >
-            View Article
+          <Link to={`/article/${article_id}`}>
+            <button className="btn btn-outline-primary"> View Article </button>
           </Link>
         </div>
-        <div className="card-footer ">
+        <div className="card-footer border border-white">
           {' '}
-          <Link to={`/comments/${article_id}`}>View Comments </Link>{' '}
+          <Link to={`/comments/${article_id}`}>
+            <button className="btn btn-outline-primary"> View Comments </button>
+          </Link>{' '}
         </div>
       </div>
     </section>

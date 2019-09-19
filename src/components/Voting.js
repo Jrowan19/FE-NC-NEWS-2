@@ -26,7 +26,7 @@ class Voting extends Component {
 </button> */}
         <button
           type="button"
-          className="btn btn-secondary btn-sm mx-auto"
+          className="btn btn-outline-secondary btn-sm mx-auto text-white"
           style={{ width: '10rem' }}
         >
           VOTES <span className="badge badge-light">{votes + voteChange}</span>

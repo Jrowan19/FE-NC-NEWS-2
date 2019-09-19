@@ -18,6 +18,7 @@ class App extends Component {
     const { username } = this.state;
     return (
       <div className="App bg-light">
+        {' '}
         <NavBar username={username} handleUserChange={this.handleUserChange} />
         <Router>
           <Home path="/" />

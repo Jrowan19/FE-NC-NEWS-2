@@ -4,6 +4,7 @@ import ArticleCard from './ArticleCard';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import Sorter from '../../../Sorter';
 import ErrorPage from '../ErrorPage';
+import Home from '../Home';
 
 class ArticleList extends Component {
   state = {
@@ -21,8 +22,8 @@ class ArticleList extends Component {
     if (isLoading) return <LoadingSpinner />;
     return (
       <>
-        <div className="bg-light">
-          <h3>Sort Articles! </h3>
+        <div className="nightBg ">
+          <h3 className="text-white">Sort Articles! </h3>
           <Sorter fetchArticles={this.fetchArticles} />
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;

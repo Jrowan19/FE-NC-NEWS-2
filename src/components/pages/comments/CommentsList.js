@@ -25,12 +25,9 @@ class CommentsList extends Component {
         <div>
           {comments.map(comment => {
             return (
-              <section
-                className="row mx-auto bg-light"
-                key={comment.comment_id}
-              >
+              <section className="row mx-auto nightBg" key={comment.comment_id}>
                 <div
-                  className="card bg-light mx-auto border border-dark mb-2"
+                  className="card nightBg mx-auto border border-dark mb-2 text-white"
                   style={{ width: '50rem' }}
                 >
                   <Link to={`/comments/${this.props.article_id}`}>
@@ -39,8 +36,8 @@ class CommentsList extends Component {
                       {new Date(comment.created_at).toLocaleString()}
                     </h3>
                   </Link>
-                  <p className="card-title text-uppercase text-dark" />
-                  <p className="card-title text-uppercase text-dark">
+                  <p className="card-title text-uppercase text-white" />
+                  <p className="card-title text-uppercase text-white">
                     {comment.body}
                   </p>
 
@@ -54,7 +51,7 @@ class CommentsList extends Component {
                   {username === comment.author && (
                     <button
                       type="button"
-                      className="btn btn-danger btn-sm mx-auto"
+                      className="btn btn-outline-danger btn-sm mx-auto mt-3"
                       style={{ width: '10rem' }}
                       onClick={() => {
                         if (

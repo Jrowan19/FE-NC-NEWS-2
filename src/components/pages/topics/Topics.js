@@ -15,7 +15,7 @@ class Topics extends Component {
     if (error) return <ErrorPage error={error} />;
     if (isLoading) return <LoadingSpinner />;
     return (
-      <div>
+      <div className="night">
         {topics.map(topic => {
           return (
             <ul topics={topics} key={topic.slug}>
