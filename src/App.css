@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  /* display: grid;
+  grid-column: 1fr 2fr; */
 }
 
 .App-logo {
@@ -31,3 +33,12 @@
     transform: rotate(360deg);
   }
 }
+
+.nav-background {
+  background-color: navy;
+}
+
+.nav-dd {
+  background-color: darkgray;
+}
+
