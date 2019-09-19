@@ -3,6 +3,7 @@ import * as api from '../../../api';
 import ArticleCard from './ArticleCard';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import Sorter from '../../../Sorter';
+import ErrorPage from '../ErrorPage';
 
 class ArticleList extends Component {
   state = {
@@ -15,7 +16,8 @@ class ArticleList extends Component {
     error: null
   };
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, error } = this.state;
+    if (error) return <ErrorPage error={error} />;
     if (isLoading) return <LoadingSpinner />;
     return (
       <>
@@ -41,8 +43,9 @@ class ArticleList extends Component {
     }
   };
 
-  fetchArticles = () => {
-    const { topic, sort_by, order, article_id } = this.props;
+  fetchArticles = (sort_by, order) => {
+    const { topic, article_id } = this.props;
+    console.log(sort_by, order);
     api
       .getArticlesWithParams(topic, sort_by, order, article_id)
       .then(articles => {

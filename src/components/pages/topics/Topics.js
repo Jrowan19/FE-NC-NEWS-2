@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import * as api from '../../../api';
 import { Link } from '@reach/router';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
+import ErrorPage from '../ErrorPage';
 
 class Topics extends Component {
   state = {
     topics: null,
-    isLoading: true
+    isLoading: true,
+    error: null
   };
   render() {
-    const { topics, isLoading } = this.state;
+    const { topics, isLoading, error } = this.state;
+    if (error) return <ErrorPage error={error} />;
     if (isLoading) return <LoadingSpinner />;
     return (
       <div>
@@ -31,9 +34,14 @@ class Topics extends Component {
   };
 
   fetchAllTopics = () => {
-    api.getAllTopics().then(topics => {
-      this.setState({ topics, isLoading: false });
-    });
+    api
+      .getAllTopics()
+      .then(topics => {
+        this.setState({ topics, isLoading: false });
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
   };
 }
 

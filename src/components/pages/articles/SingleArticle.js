@@ -39,7 +39,7 @@ class SingleArticle extends Component {
                     <p>{body}</p>
                     <p>Votes: {votes}</p>
                     <p>Comments: {comment_count}</p>
-                    <p>Date Posted: {created_at}</p>
+                    <p>Date Posted: {new Date(created_at).toLocaleString()} </p>
                     <button onClick={this.fetchComments}> See Comments</button>
                     {showComments && <CommentsList article_id={article_id} />}
                   </div>
