@@ -1,9 +1,10 @@
 import React from 'react';
+import ArticleList from './articles/ArticleList';
 
 const Home = () => {
   return (
     <div>
-      <p>Welcome to the Home Page</p>
+      <ArticleList />
     </div>
   );
 };

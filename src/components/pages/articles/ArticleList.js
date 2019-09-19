@@ -3,7 +3,6 @@ import * as api from '../../../api';
 import ArticleCard from './ArticleCard';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import Sorter from '../../../Sorter';
-import CommentsList from '../comments/CommentsList';
 
 class ArticleList extends Component {
   state = {
@@ -12,7 +11,8 @@ class ArticleList extends Component {
     sort_by: 'created_at',
     order: 'desc',
     article_id: '',
-    isLoading: true
+    isLoading: true,
+    error: null
   };
   render() {
     const { articles, isLoading } = this.state;
@@ -20,7 +20,7 @@ class ArticleList extends Component {
     return (
       <>
         <div className="bg-light">
-          <h3>Sort those Articles! </h3>
+          <h3>Sort Articles! </h3>
           <Sorter fetchArticles={this.fetchArticles} />
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
@@ -47,6 +47,9 @@ class ArticleList extends Component {
       .getArticlesWithParams(topic, sort_by, order, article_id)
       .then(articles => {
         this.setState({ articles, isLoading: false });
+      })
+      .catch(error => {
+        this.setState({ error });
       });
   };
 }

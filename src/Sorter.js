@@ -11,7 +11,7 @@ class Sorter extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <select
-            className="btn btn-primary dropdown-toggle mr-2"
+            className="btn btn-secondary dropdown-toggle mr-2"
             name="sort_by"
             onChange={this.handleChange}
           >
@@ -20,14 +20,14 @@ class Sorter extends Component {
             <option value="votes">Votes</option>
           </select>
           <select
-            className="btn btn-primary dropdown-toggle"
+            className="btn btn-secondary dropdown-toggle"
             name="order"
             onChange={this.handleChange}
           >
             <option value="desc">Descending</option>
             <option value="asc">Ascending</option>
           </select>
-          <button className="btn btn-success ml-2">Sort!</button>
+          <button className="btn btn-secondary btn-sm ml-2">Sort!</button>
         </form>
       </div>
     );

@@ -3,11 +3,11 @@ import { Link } from '@reach/router';
 
 const NavBar = props => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light nav-background">
-      <form className="form-row align-items-center mb-1">
+    <nav className="navbar navbar-expand-lg navbar-light nav-background fixed-top">
+      <form className="form-row align-items-center mb-2">
         <div className="dropdown ml-3 mt-3 mb-2">
           <select
-            className="btn btn-primary dropdown-toggle"
+            className="btn btn-primary dropdown-toggle font-weight-bold"
             type="text"
             name="username"
             value={props.username}
@@ -22,11 +22,14 @@ const NavBar = props => {
           <i className="fas fa-user" /> Logged in as {props.username}
         </p>
       </form>
-      <Link className="navbar-brand text-danger m-5" to="/">
+      <Link
+        className="navbar-brand text-danger m-5 text-right font-weight-bold"
+        to="/"
+      >
         NC News
       </Link>
       <button
-        className="navbar-toggler"
+        className="navbar-toggler btn btn-light m-2 btn btn-lg"
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
@@ -34,34 +37,46 @@ const NavBar = props => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span className="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon btn btn-light btn-lg"></span>
       </button>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/articles">
+          <li className="nav-item active">
+            <Link
+              className="nav-link text-white font-weight-bold"
+              to="/articles"
+            >
               Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/topics/coding">
+            <Link
+              className="nav-link text-white font-weight-bold"
+              to="/topics/coding"
+            >
               Coding
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/topics/football">
+            <Link
+              className="nav-link text-white font-weight-bold"
+              to="/topics/football"
+            >
               Football
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/topics/cooking">
+            <Link
+              className="nav-link text-white font-weight-bold"
+              to="/topics/cooking"
+            >
               Cooking
             </Link>
           </li>
           <li className="nav-item dropdown">
             <a
-              className="nav-link dropdown-toggle text-white"
+              className="nav-link dropdown-toggle text-white font-weight-bold"
               href="#"
               id="navbarDropdown"
               role="button"
@@ -71,10 +86,7 @@ const NavBar = props => {
             >
               Topics
             </a>
-            <div
-              className="dropdown-menu sm bg-warning"
-              aria-labelledby="navbarDropdown"
-            >
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item " to="/topics">
                 All
               </Link>

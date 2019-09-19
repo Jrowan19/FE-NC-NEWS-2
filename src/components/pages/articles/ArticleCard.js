@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from '@reach/router';
-//import CommentsList from '../comments/CommentsList';
 
 const ArticleCard = props => {
   const {
@@ -13,9 +12,9 @@ const ArticleCard = props => {
     votes
   } = props.article;
   return (
-    <section className="row mt-3 ">
+    <section className="row mt-3 card-padding">
       <div
-        className="card text-center mb-2 mx-auto border border-secondary"
+        className="card text-center mb-2 mx-auto border border-secondary "
         style={{ width: '40rem' }}
       >
         <div className="card-header text-uppercase">
@@ -28,7 +27,7 @@ const ArticleCard = props => {
           <p className="card-text">Comment Count: {comment_count}</p>
           <Link
             to={`/article/${article_id}`}
-            className="btn nav-background text-white"
+            className="btn btn-secondary text-white"
           >
             View Article
           </Link>

@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import * as api from '../../../api';
 import { Link, Router } from '@reach/router';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
+import CommentsList from '../comments/CommentsList';
 
 class SingleArticle extends Component {
   state = {
     article: [],
-    isLoading: true
+    isLoading: true,
+    showComments: false
   };
   render() {
-    const { article, isLoading } = this.state;
+    const { article, isLoading, showComments } = this.state;
     if (isLoading) return <LoadingSpinner />;
     const {
       author,
@@ -24,25 +26,22 @@ class SingleArticle extends Component {
 
     return (
       <>
-        <div className="bg-light">
+        <div className="bg-light single-div">
           <br />
           <section className="mx-auto">
             <div className="row mx-auto">
               <div className="col-sm-6 mx-auto">
                 <div className="card ">
                   <div className="card-body">
-                    <h5 className="card-title">{title}</h5>
+                    <h2 className="card-title">{title}</h2>
                     <h4>Author: {author}</h4>
                     <h3>{topic}</h3>
                     <p>{body}</p>
-                    <p>{votes}</p>
-                    <p>{comment_count}</p>
-                    <Link
-                      to={`/comments/${article_id}`}
-                      className="btn btn-primary"
-                    >
-                      See Comments
-                    </Link>
+                    <p>Votes: {votes}</p>
+                    <p>Comments: {comment_count}</p>
+                    <p>Date Posted: {created_at}</p>
+                    <button onClick={this.fetchComments}> See Comments</button>
+                    {showComments && <CommentsList article_id={article_id} />}
                   </div>
                 </div>
               </div>
@@ -55,6 +54,12 @@ class SingleArticle extends Component {
 
   componentDidMount = () => {
     this.fetchSingleArticle();
+  };
+
+  fetchComments = () => {
+    this.setState(prevState => {
+      return { showComments: !prevState.showComments };
+    });
   };
 
   fetchSingleArticle = () => {

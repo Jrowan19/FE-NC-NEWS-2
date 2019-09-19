@@ -35,10 +35,23 @@
 }
 
 .nav-background {
-  background-color: navy;
+  background-color: rgb(0, 0, 96);
 }
 
 .nav-dd {
   background-color: darkgray;
 }
 
+.single-div {
+  height: 100rem;
+}
+
+body {
+  padding-top: 250px;
+  background-color: hsl(0, 0%, 98%);
+}
+
+.card-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}

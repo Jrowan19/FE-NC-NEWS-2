@@ -4,15 +4,15 @@ import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import Voting from '../../Voting';
 import { Link } from '@reach/router';
 import CommentAdder from './CommentAdder';
-import ArticleCard from '../articles/ArticleCard';
 
 class CommentsList extends Component {
   state = {
     comments: [],
-    isLoading: true
+    isLoading: true,
+    error: null
   };
   render() {
-    const { comments, isLoading } = this.state;
+    const { comments, isLoading, error } = this.state;
     const { username } = this.props;
     if (isLoading) return <LoadingSpinner />;
     return (
@@ -26,15 +26,15 @@ class CommentsList extends Component {
           {comments.map(comment => {
             return (
               <section
-                className="row mx-auto Home sitewrapper "
+                className="row mx-auto bg-light"
                 key={comment.comment_id}
               >
                 <div
-                  className="card bg-light  mx-auto border border-white"
+                  className="card bg-light mx-auto border border-dark mb-2"
                   style={{ width: '50rem' }}
                 >
                   <Link to={`/comments/${this.props.article_id}`}>
-                    <h3 className="card-title text-dark text-uppercase bg-primary active text-white border border-white">
+                    <h3 className="card-title text-white text-uppercase nav-background  active text-white border border-white">
                       {comment.author}{' '}
                       {new Date(comment.created_at).toLocaleString()}
                     </h3>
@@ -93,11 +93,16 @@ class CommentsList extends Component {
 
   addComment = comment => {
     const { article_id, username } = this.props;
-    api.postComment(article_id, comment, { username }).then(newComment => {
-      this.setState(({ comments }) => {
-        return { comments: [newComment, ...comments] };
+    api
+      .postComment(article_id, comment, { username })
+      .then(newComment => {
+        this.setState(({ comments }) => {
+          return { comments: [newComment, ...comments] };
+        });
+      })
+      .catch(error => {
+        this.setState({ error });
       });
-    });
   };
 
   removeComment = comment_id => {

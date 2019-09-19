@@ -8,6 +8,7 @@ import NavBar from './components/layouts.js/NavBar';
 import Home from './components/pages/Home';
 import SingleArticle from './components/pages/articles/SingleArticle';
 import CommentsList from './components/pages/comments/CommentsList';
+import ErrorPage from './components/pages/ErrorPage';
 
 class App extends Component {
   state = {
@@ -16,7 +17,7 @@ class App extends Component {
   render() {
     const { username } = this.state;
     return (
-      <div className="App">
+      <div className="App bg-light">
         <NavBar username={username} handleUserChange={this.handleUserChange} />
         <Router>
           <Home path="/" />
@@ -27,8 +28,12 @@ class App extends Component {
             path="article/:article_id"
             loggedusernameInUser={username}
           />
+          <CommentsList
+            path="/articles/:article_id/comments"
+            username={username}
+          />
           <CommentsList path="/comments/:article_id" username={username} />
-          <CommentsList path="/comments/:comment_id" username={username} />
+          <ErrorPage default />
         </Router>
       </div>
     );
