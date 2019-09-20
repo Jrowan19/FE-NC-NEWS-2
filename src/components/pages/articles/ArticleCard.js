@@ -17,14 +17,14 @@ const ArticleCard = props => {
         className="card text-center mb-2 mx-auto border border-light text-white nightBg"
         style={{ width: '40rem' }}
       >
-        <div className="card-header text-uppercase">
-          {author} - Date Posted - {new Date(created_at).toLocaleString()}
-        </div>
         <div className="card-body">
-          <h5 className="card-title">Title: {title}</h5>
+          <h3 className="card-title">{title}</h3>
           <p className="card-text"> {topic}</p>
+          <div className="card-header text-uppercase">
+            {author} - Posted On - {new Date(created_at).toLocaleString()}
+          </div>
           <p className="card-text">Votes: {votes}</p>
-          <p className="card-text">Comment Count: {comment_count}</p>
+          <p className="card-text">Comments : {comment_count}</p>
           <Link to={`/article/${article_id}`}>
             <button className="btn btn-outline-primary"> View Article </button>
           </Link>

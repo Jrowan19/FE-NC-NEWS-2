@@ -26,21 +26,29 @@ class SingleArticle extends Component {
 
     return (
       <>
-        <div className="bg-light single-div">
+        <div className="nightBg single-div">
           <br />
           <section className="mx-auto">
             <div className="row mx-auto">
               <div className="col-sm-6 mx-auto">
                 <div className="card ">
-                  <div className="card-body">
-                    <h2 className="card-title">{title}</h2>
-                    <h4>Author: {author}</h4>
-                    <h3>{topic}</h3>
-                    <p>{body}</p>
-                    <p>Votes: {votes}</p>
-                    <p>Comments: {comment_count}</p>
-                    <p>Date Posted: {new Date(created_at).toLocaleString()} </p>
-                    <button onClick={this.fetchComments}> See Comments</button>
+                  <div className="card-body nightBg">
+                    <h1 className="card-title text-white">{title}</h1>
+                    <h4 className="text-white">Author: {author}</h4>
+                    <h3 className="text-white">{topic}</h3>
+                    <p className="text-white">{body}</p>
+                    <p className="text-white">Votes: {votes}</p>
+                    <p className="text-white">Comments: {comment_count}</p>
+                    <p className="text-white">
+                      Date Posted: {new Date(created_at).toLocaleString()}{' '}
+                    </p>
+                    <button
+                      className="btn btn-outline-light"
+                      onClick={this.fetchComments}
+                    >
+                      {' '}
+                      See Comments
+                    </button>
                     {showComments && <CommentsList article_id={article_id} />}
                   </div>
                 </div>
