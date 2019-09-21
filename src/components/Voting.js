@@ -11,36 +11,40 @@ class Voting extends Component {
 
     return (
       <>
-        {username && username !== author && (
-          <button
-            className="btn btn-light btn-sm mx-auto"
-            style={{ width: '10rem' }}
-            onClick={() => this.updateVotes(1)}
-            disabled={voteChange >= 1}
-          >
-            <i className="fas fa-thumbs-up" />
-          </button>
-        )}
-        {/* <button type="button" class="btn btn-primary">
+        <div className="row mx-auto">
+          {username && username !== author && (
+            <button
+              className="bg-success"
+              style={{ width: '5rem' }}
+              onClick={() => this.updateVotes(1)}
+              disabled={voteChange >= 1}
+            >
+              <i className="fas fa-thumbs-up"></i>
+            </button>
+          )}
+          {/* <button type="button" class="btn btn-primary">
   Notifications <span class="badge badge-light">4</span>
 </button> */}
-        <button
-          type="button"
-          className="btn btn-outline-secondary btn-sm mx-auto text-white"
-          style={{ width: '10rem' }}
-        >
-          VOTES <span className="badge badge-light">{votes + voteChange}</span>
-        </button>
-        {username && username !== author && (
           <button
-            className="btn btn-light btn-sm mx-auto"
-            style={{ width: '10rem' }}
-            onClick={() => this.updateVotes(-1)}
-            disabled={voteChange === -1}
+            type="button"
+            className="btn btn-outline-secondary btn-sm mx-auto text-white"
+            style={{ width: '3rem' }}
           >
-            <i className="fas fa-thumbs-down" />
+            <span className="badge badge-light badge-sm">
+              {votes + voteChange}
+            </span>
           </button>
-        )}
+          {username && username !== author && (
+            <button
+              className="bg-danger"
+              style={{ width: '5rem' }}
+              onClick={() => this.updateVotes(-1)}
+              disabled={voteChange === -1}
+            >
+              <i className="fas fa-thumbs-down" />
+            </button>
+          )}
+        </div>
       </>
     );
   }

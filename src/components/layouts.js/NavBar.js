@@ -17,6 +17,12 @@ const NavBar = props => {
             <option value="cooljmessy">cooljmessy</option>
             <option value="tickle122"> tickle122</option>
           </select>
+          <Link
+            className="btn btn-outline-primary btn-sm m-2"
+            to={`/users/${props.username}`}
+          >
+            View Profile
+          </Link>
         </div>
         <p className="text-white ml-3 mt-3 mb-2">
           <i className="fas fa-user" /> Logged in as {props.username}
@@ -29,7 +35,7 @@ const NavBar = props => {
       >
         <button className="btn btn-outline-primary">
           {' '}
-          <i class="fas fa-home"></i> NC News
+          <i className="fas fa-home"></i> NC News
         </button>
       </Link>
 

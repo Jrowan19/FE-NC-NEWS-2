@@ -4,6 +4,7 @@ import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import Voting from '../../Voting';
 import { Link } from '@reach/router';
 import CommentAdder from './CommentAdder';
+import moment from 'moment';
 
 class CommentsList extends Component {
   state = {
@@ -31,10 +32,10 @@ class CommentsList extends Component {
                   style={{ width: '50rem' }}
                 >
                   <Link to={`/comments/${this.props.article_id}`}>
-                    <h3 className="card-title text-white text-uppercase nav-background  active text-white border border-white">
-                      {comment.author}{' '}
-                      {new Date(comment.created_at).toLocaleString()}
-                    </h3>
+                    <h5 className="card-title text-white text-uppercase nav-background  active text-white border border-white">
+                      {comment.author} Posted{' '}
+                      {moment(comment.created_at).fromNow()}
+                    </h5>
                   </Link>
                   <p className="card-title text-uppercase text-white" />
                   <p className="card-title text-uppercase text-white">

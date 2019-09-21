@@ -31,7 +31,7 @@ const Home = () => {
                 />
               </Link>
               <div className="carousel-caption d-none d-md-block">
-                <h5 className="text-wrap">Technology </h5>
+                <h5 className="text-wrap">Coding </h5>
               </div>
             </div>
             <div className="carousel-item">
@@ -44,7 +44,7 @@ const Home = () => {
                 />
               </Link>
               <div className="carousel-caption d-none d-md-block">
-                <h5>Sport</h5>
+                <h5>Football</h5>
               </div>
             </div>
             <div className="carousel-item">
@@ -57,7 +57,7 @@ const Home = () => {
                 />
               </Link>
               <div className="carousel-caption d-none d-md-block">
-                <h5>Food</h5>
+                <h5>Cooking</h5>
               </div>
             </div>
           </div>

@@ -33,12 +33,12 @@ class ArticleList extends Component {
     );
   }
 
+
   componentDidMount = () => {
     this.fetchArticles();
   };
 
   componentDidUpdate = prevProps => {
-    console.log(this.props);
     if (this.props.topic !== prevProps.topic) {
       this.fetchArticles();
     }
@@ -46,7 +46,7 @@ class ArticleList extends Component {
 
   fetchArticles = (sort_by, order) => {
     const { topic, article_id } = this.props;
-    console.log(sort_by, order);
+
     api
       .getArticlesWithParams(topic, sort_by, order, article_id)
       .then(articles => {

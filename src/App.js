@@ -9,13 +9,14 @@ import Home from './components/pages/Home';
 import SingleArticle from './components/pages/articles/SingleArticle';
 import CommentsList from './components/pages/comments/CommentsList';
 import ErrorPage from './components/pages/ErrorPage';
+import Users from './components/pages/Users/Users';
 
 class App extends Component {
   state = {
     username: 'jessjelly'
   };
   render() {
-    const { username } = this.state;
+    const { username, user } = this.state;
     return (
       <div className="App bg-light">
         {' '}
@@ -25,14 +26,12 @@ class App extends Component {
           <ArticleList path="/articles" />
           <Topics path="/topics" />
           <ArticleList path="/topics/:topic" />
-          <SingleArticle
-            path="article/:article_id"
-            loggedusernameInUser={username}
-          />
+          <SingleArticle path="article/:article_id" username={username} />
           <CommentsList
             path="/articles/:article_id/comments"
             username={username}
           />
+          <Users path="/users/:username" username={username} />
           <CommentsList path="/comments/:article_id" username={username} />
           <ErrorPage default />
         </Router>

@@ -6,6 +6,12 @@ const request = axios.create({
 
 const baseUrl = 'https://john-rowan-news.herokuapp.com/api';
 
+export const getData = URL => {
+  return request.get(URL).then(({ data }) => {
+    return data;
+  });
+};
+
 export const getArticlesWithParams = (topic, sort_by, order, article_id) => {
   let url = '/articles';
   return request
@@ -62,6 +68,13 @@ export const deleteComment = comment_id => {
     .then(({ data }) => {
       return data.comment;
     });
+};
+
+export const getUser = endpoint => {
+  let url = `/users/${endpoint}`;
+  return request.get(url).then(({ data }) => {
+    return data.users;
+  });
 };
 
 export const updateVotes = (article_id, comment_id, inc_votes) => {

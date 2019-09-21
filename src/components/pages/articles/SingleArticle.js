@@ -3,15 +3,19 @@ import * as api from '../../../api';
 import { Link, Router } from '@reach/router';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import CommentsList from '../comments/CommentsList';
+import Voting from '../../Voting';
 
 class SingleArticle extends Component {
   state = {
     article: [],
     isLoading: true,
-    showComments: false
+    showComments: false,
+    showVoting: false
   };
   render() {
     const { article, isLoading, showComments } = this.state;
+    const { username } = this.props;
+
     if (isLoading) return <LoadingSpinner />;
     const {
       author,
@@ -28,6 +32,7 @@ class SingleArticle extends Component {
       <>
         <div className="nightBg single-div">
           <br />
+
           <section className="mx-auto">
             <div className="row mx-auto">
               <div className="col-sm-6 mx-auto">
@@ -42,6 +47,7 @@ class SingleArticle extends Component {
                     <p className="text-white">
                       Date Posted: {new Date(created_at).toLocaleString()}{' '}
                     </p>
+
                     <button
                       className="btn btn-outline-light"
                       onClick={this.fetchComments}
@@ -49,7 +55,13 @@ class SingleArticle extends Component {
                       {' '}
                       See Comments
                     </button>
-                    {showComments && <CommentsList article_id={article_id} />}
+
+                    {showComments && (
+                      <CommentsList
+                        article_id={article_id}
+                        username={username}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
@@ -69,6 +81,12 @@ class SingleArticle extends Component {
       return { showComments: !prevState.showComments };
     });
   };
+
+  componentDidMount() {
+    api.getComments(this.props.article_id).then(comments => {
+      this.setState({ comments, isLoading: false });
+    });
+  }
 
   fetchSingleArticle = () => {
     api.getSingleArticle(`articles/${this.props.article_id}`).then(article => {

@@ -11,17 +11,42 @@ class Topics extends Component {
     error: null
   };
   render() {
-    const { topics, isLoading, error } = this.state;
+    const { isLoading, topics, error } = this.state;
     if (error) return <ErrorPage error={error} />;
     if (isLoading) return <LoadingSpinner />;
     return (
-      <div className="night">
+      <div className="row mx-auto nightBg">
         {topics.map(topic => {
           return (
-            <ul topics={topics} key={topic.slug}>
-              <Link to={`${topic.slug}`}>
-                <p>{topic.slug}</p>
-              </Link>
+            <ul
+              className=" row card mb-3 mx-auto nightBg text-white border border-light"
+              style={{ width: '540px' }}
+            >
+              <li className="row no-gutters">
+                <div class="col-md-4">
+                  <img
+                    src="https://pbs.twimg.com/profile_images/728482145082073088/lp46310N_400x400.jpg"
+                    className="card img-fluid"
+                    style={{ height: '10rem' }}
+                    alt="..."
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <Link to={`/topics/${topic.slug}`}>
+                      <h5 class="card-title">{topic.slug} Articles</h5>
+                    </Link>
+                    <p class="card-text">
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
+                    </p>
+                    <p class="card-text">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                  </div>
+                </div>
+              </li>
             </ul>
           );
         })}
