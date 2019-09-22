@@ -10,32 +10,44 @@ import SingleArticle from './components/pages/articles/SingleArticle';
 import CommentsList from './components/pages/comments/CommentsList';
 import ErrorPage from './components/pages/ErrorPage';
 import Users from './components/pages/Users/Users';
+import SideBar from './components/layouts.js/SideBar';
 
 class App extends Component {
   state = {
     username: 'jessjelly'
   };
   render() {
-    const { username, user } = this.state;
+    const { username } = this.state;
     return (
-      <div className="App bg-light">
-        {' '}
-        <NavBar username={username} handleUserChange={this.handleUserChange} />
-        <Router>
-          <Home path="/" />
-          <ArticleList path="/articles" />
-          <Topics path="/topics" />
-          <ArticleList path="/topics/:topic" />
-          <SingleArticle path="article/:article_id" username={username} />
-          <CommentsList
-            path="/articles/:article_id/comments"
-            username={username}
-          />
-          <Users path="/users/:username" username={username} />
-          <CommentsList path="/comments/:article_id" username={username} />
-          <ErrorPage default />
-        </Router>
-      </div>
+      <wrapper className="App">
+        <div class="row">
+          <div class="col-4">
+            <NavBar
+              username={username}
+              handleUserChange={this.handleUserChange}
+            />
+            <SideBar />
+          </div>
+          <div class="col">
+            <Router>
+              <Home path="/" />
+              <ArticleList path="/articles" />
+              <Topics path="/topics" />
+              <ArticleList path="/topics/:topic" />
+              <SingleArticle path="article/:article_id" username={username} />
+
+              <CommentsList
+                path="/articles/:article_id/comments"
+                username={username}
+              />
+              <Users path="/users/:username" username={username} />
+              <CommentsList path="/comments/:article_id" username={username} />
+              <ErrorPage default />
+            </Router>
+          </div>
+          <div class="w-100"></div>
+        </div>
+      </wrapper>
     );
   }
 

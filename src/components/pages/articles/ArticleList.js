@@ -4,7 +4,8 @@ import ArticleCard from './ArticleCard';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import Sorter from '../../../Sorter';
 import ErrorPage from '../ErrorPage';
-import Home from '../Home';
+
+import Pagination from '../../Pagination';
 
 class ArticleList extends Component {
   state = {
@@ -14,7 +15,8 @@ class ArticleList extends Component {
     order: 'desc',
     article_id: '',
     isLoading: true,
-    error: null
+    error: null,
+    pageSize: 4
   };
   render() {
     const { articles, isLoading, error } = this.state;
@@ -28,11 +30,16 @@ class ArticleList extends Component {
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}
+
+          <Pagination
+            itemsCount={this.state.articles.length}
+            pageSize={this.state.pageSize}
+            onPageChange={this.handlePageChange}
+          />
         </div>
       </>
     );
   }
-
 
   componentDidMount = () => {
     this.fetchArticles();
@@ -42,6 +49,10 @@ class ArticleList extends Component {
     if (this.props.topic !== prevProps.topic) {
       this.fetchArticles();
     }
+  };
+
+  handlePageChange = page => {
+    console.log(page);
   };
 
   fetchArticles = (sort_by, order) => {

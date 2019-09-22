@@ -29,12 +29,6 @@ const ArticleCard = props => {
             <button className="btn btn-outline-primary"> View Article </button>
           </Link>
         </div>
-        <div className="card-footer border border-white">
-          {' '}
-          <Link to={`/comments/${article_id}`}>
-            <button className="btn btn-outline-primary"> View Comments </button>
-          </Link>{' '}
-        </div>
       </div>
     </section>
   );
