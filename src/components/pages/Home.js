@@ -2,7 +2,7 @@ import React from 'react';
 import ArticleList from './articles/ArticleList';
 import { Link } from '@reach/router';
 
-const Home = () => {
+const Home = props => {
   return (
     <div>
       <div className="bd-example nightBg card-padding">

@@ -11,7 +11,7 @@ class Sorter extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <select
-            className="btn btn-outline-secondary dropdown-toggle mr-2 text-white"
+            className="btn btn-outline-secondary dropdown-toggle mr-2 text-white "
             name="sort_by"
             onChange={this.handleChange}
           >

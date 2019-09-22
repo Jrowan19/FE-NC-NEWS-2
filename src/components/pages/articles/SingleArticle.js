@@ -4,17 +4,20 @@ import { Link, Router } from '@reach/router';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import CommentsList from '../comments/CommentsList';
 import Voting from '../../Voting';
+import ErrorPage from '../ErrorPage';
 
 class SingleArticle extends Component {
   state = {
     article: [],
     isLoading: true,
+    error: null,
     showComments: false,
     showVoting: false
   };
   render() {
-    const { article, isLoading, showComments } = this.state;
+    const { article, isLoading, showComments, error } = this.state;
     const { username } = this.props;
+    if (error) return <ErrorPage error={error} />;
 
     if (isLoading) return <LoadingSpinner />;
     const {
@@ -81,16 +84,26 @@ class SingleArticle extends Component {
   };
 
   componentDidMount() {
-    api.getComments(this.props.article_id).then(comments => {
-      this.setState({ comments, isLoading: false });
-    });
+    api
+      .getComments(this.props.article_id)
+      .then(comments => {
+        this.setState({ comments, isLoading: false });
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
   }
 
   fetchSingleArticle = () => {
-    api.getSingleArticle(`articles/${this.props.article_id}`).then(article => {
-      console.log(article);
-      this.setState({ article, isLoading: false });
-    });
+    api
+      .getSingleArticle(`articles/${this.props.article_id}`)
+      .then(article => {
+        console.log(article);
+        this.setState({ article, isLoading: false });
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
   };
 }
 

@@ -14,21 +14,29 @@ import SideBar from './components/layouts.js/SideBar';
 
 class App extends Component {
   state = {
-    username: 'jessjelly'
+    username: 'jessjelly',
+    toggleSideBar: true
   };
   render() {
-    const { username } = this.state;
+    const { username, toggleSideBar } = this.state;
     return (
-      <wrapper className="App">
-        <div class="row">
-          <div class="col-4">
+      <section className="App">
+        <div className="row">
+          <div className="col-4">
             <NavBar
               username={username}
               handleUserChange={this.handleUserChange}
             />
-            <SideBar />
+            <button
+              className="sidebar-toggler btn btn-dark m-2 btn btn-lg mr-5"
+              onClick={this.handleSideBar}
+            >
+              <i className="fas fa-bars"></i>
+            </button>
+
+            {toggleSideBar && <SideBar />}
           </div>
-          <div class="col">
+          <div className="col">
             <Router>
               <Home path="/" />
               <ArticleList path="/articles" />
@@ -45,15 +53,19 @@ class App extends Component {
               <ErrorPage default />
             </Router>
           </div>
-          <div class="w-100"></div>
+          <div className="w-100"></div>
         </div>
-      </wrapper>
+      </section>
     );
   }
 
   handleUserChange = e => {
     const { value } = e.target;
     this.setState({ username: value });
+  };
+
+  handleSideBar = () => {
+    this.setState(prevState => ({ toggleSideBar: !prevState.toggleSideBar }));
   };
 }
 

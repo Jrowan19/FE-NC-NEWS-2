@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../../../api';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
+import ErrorPage from '../ErrorPage';
 
 class User extends Component {
   state = {
@@ -9,8 +10,8 @@ class User extends Component {
   };
 
   render() {
-    const { user, isLoading } = this.state;
-    //const { username} = this.props;
+    const { user, isLoading, error } = this.state;
+    if (error) return <ErrorPage error={error} />;
     if (isLoading) return <LoadingSpinner />;
     const { username, name, avatar_url } = user;
 
@@ -41,9 +42,14 @@ class User extends Component {
   fetchUser = () => {
     const author = this.props.username;
     const URL = `users/${author}`;
-    api.getData(URL).then(({ user }) => {
-      this.setState({ user, isLoading: false });
-    });
+    api
+      .getData(URL)
+      .then(({ user }) => {
+        this.setState({ user, isLoading: false });
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
   };
 }
 export default User;

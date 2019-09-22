@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import LoadingSpinner from '../../layouts.js/LoadingSpinner';
+import ErrorPage from '../ErrorPage';
 
 class CommentAdder extends Component {
   state = {

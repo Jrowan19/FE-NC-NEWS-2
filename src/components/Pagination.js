@@ -9,7 +9,7 @@ const Pagination = props => {
 
   return (
     <nav aria-label="Page navigation example mx-auto">
-      <ul class="pagination mx-auto">
+      <ul className="pagination mx-auto">
         {pages.map(page => (
           <li className="page-item  " key={page}>
             <a className="page-link">{page}</a>
