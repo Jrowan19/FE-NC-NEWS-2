@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
+import moment from 'moment';
 
 const ArticleCard = props => {
   const {
@@ -21,7 +22,7 @@ const ArticleCard = props => {
           <h3 className="card-title">{title}</h3>
           <p className="card-text"> {topic}</p>
           <div className="card-header text-uppercase">
-            {author} - Posted On - {new Date(created_at).toLocaleString()}
+            {author} - Posted - {moment(created_at).fromNow()}
           </div>
           <p className="card-text">Votes: {votes}</p>
           <p className="card-text">Comments : {comment_count}</p>
