@@ -31,12 +31,10 @@ class SingleArticle extends Component {
     return (
       <>
         <div className="nightBg single-div">
-          <br />
-
           <section className="mx-auto">
-            <div className="row mx-auto">
+            <div className="row">
               <div className="col-sm-6 mx-auto">
-                <div className="card ">
+                <div className="card">
                   <div className="card-body nightBg">
                     <h1 className="card-title text-white">{title}</h1>
                     <h4 className="text-white">Author: {author}</h4>

@@ -5,7 +5,7 @@ const NavBar = props => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light nav-background fixed-top border border-nav-border">
       <form className="form-row align-items-center mb-2">
-        <div className="dropdown ml-3 mt-3 mb-2">
+        <div className="dropdown ml-3 mt-3 mt-4">
           <select
             className="btn btn-primary dropdown-toggle font-weight-bold"
             type="text"
@@ -24,7 +24,7 @@ const NavBar = props => {
             View Profile
           </Link>
         </div>
-        <p className="text-white ml-3 mt-3 mb-2">
+        <p className="text-white ml-3 mt-4 mb-4">
           <i className="fas fa-user" /> Logged in as {props.username}
         </p>
       </form>
@@ -104,20 +104,6 @@ const NavBar = props => {
             </div>
           </li>
         </ul>
-        <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button
-            className="btn btn-outline-light my-2 my-sm-0 m-2"
-            type="submit"
-          >
-            Search
-          </button>
-        </form>
       </div>
     </nav>
   );
