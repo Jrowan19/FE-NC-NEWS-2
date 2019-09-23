@@ -43,7 +43,7 @@ const SideBar = props => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={`/users/${props.author}`}>
+                  <Link className="nav-link" to={`/users/${props.user}`}>
                     <span data-feather="layers"></span>
                     Users
                   </Link>

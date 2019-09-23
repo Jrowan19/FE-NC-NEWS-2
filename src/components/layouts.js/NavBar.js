@@ -4,36 +4,11 @@ import { Link } from '@reach/router';
 const NavBar = props => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light nav-background fixed-top border border-nav-border">
-      <form className="form-row align-items-center mb-2">
-        <div className="dropdown ml-3 mt-3 mt-4">
-          <select
-            className="btn btn-primary dropdown-toggle font-weight-bold"
-            type="text"
-            name="username"
-            value={props.username}
-            onChange={props.handleUserChange}
-          >
-            <option value="jessjelly"> jessjelly</option>
-            <option value="cooljmessy">cooljmessy</option>
-            <option value="tickle122"> tickle122</option>
-          </select>
-          <Link
-            className="btn btn-outline-primary btn-sm m-2"
-            to={`/users/${props.username}`}
-          >
-            View Profile
-          </Link>
-        </div>
-        <p className="text-white ml-3 mt-4 mb-4">
-          <i className="fas fa-user" /> Logged in as {props.username}
-        </p>
-      </form>
-
       <Link
-        className="navbar-brand text-danger m-5 text-right font-weight-bold"
+        className="navbar-brand text-danger m-5 text-right font-weight-bold "
         to="/"
       >
-        <button className="btn btn-outline-primary">
+        <button className="btn btn-outline-primary mt-4 mb-2">
           {' '}
           <i className="fas fa-home"></i> NC News
         </button>
@@ -53,7 +28,7 @@ const NavBar = props => {
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
+          <li className="nav-item active mt-4 mb-2">
             <Link
               className="nav-link text-white font-weight-bold"
               to="/articles"
@@ -61,7 +36,7 @@ const NavBar = props => {
               <button className="btn btn-outline-danger"> Articles </button>
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item mt-4 mb-2">
             <Link
               className="nav-link text-white font-weight-bold"
               to="/topics/coding"
@@ -69,7 +44,7 @@ const NavBar = props => {
               <button className="btn btn-outline-warning"> Coding </button>
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item mt-4 mb-2">
             <Link
               className="nav-link text-white font-weight-bold"
               to="/topics/football"
@@ -77,7 +52,7 @@ const NavBar = props => {
               <button className="btn btn-outline-primary"> Football</button>
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item mt-4 mb-2">
             <Link
               className="nav-link text-white font-weight-bold"
               to="/topics/cooking"
@@ -85,7 +60,7 @@ const NavBar = props => {
               <button className="btn btn-outline-success"> Cooking </button>
             </Link>
           </li>
-          <li className="nav-item dropdown">
+          <li className="nav-item dropdown mt-4 mb-2">
             <a
               className="nav-link dropdown-toggle text-white font-weight-bold"
               href="#"
@@ -104,6 +79,31 @@ const NavBar = props => {
             </div>
           </li>
         </ul>
+        <form className="form-row align-items-center mb-2">
+          <div className="dropdown ml-3 mt-3 mt-4">
+            <select
+              className="btn btn-primary dropdown-toggle font-weight-bold"
+              type="text"
+              name="username"
+              value={props.username}
+              onChange={props.handleUserChange}
+            >
+              <option value="jessjelly"> jessjelly</option>
+              <option value="grumpy19">grumpy19</option>
+              <option value="cooljmessy">cooljmessy</option>
+              <option value="tickle122"> tickle122</option>
+            </select>
+            <Link
+              className="btn btn-outline-primary btn-sm m-2"
+              to={`/users/${props.username}`}
+            >
+              View Profile
+            </Link>
+          </div>
+          <p className="text-white ml-3 mt-4 mb-2">
+            <i className="fas fa-user" /> Logged in as {props.username}
+          </p>
+        </form>
       </div>
     </nav>
   );

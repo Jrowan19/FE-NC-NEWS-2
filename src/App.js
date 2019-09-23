@@ -20,42 +20,25 @@ class App extends Component {
   render() {
     const { username, toggleSideBar } = this.state;
     return (
-      <section className="App">
-        <div className="row">
-          <div className="col-4">
-            <NavBar
-              username={username}
-              handleUserChange={this.handleUserChange}
-            />
-            <button
-              className="sidebar-toggler btn btn-dark m-2 btn btn-lg mr-5"
-              onClick={this.handleSideBar}
-            >
-              <i className="fas fa-bars"></i>
-            </button>
+      <div className="App">
+        <NavBar username={username} handleUserChange={this.handleUserChange} />
 
-            {toggleSideBar && <SideBar />}
-          </div>
-          <div className="col">
-            <Router>
-              <Home path="/" />
-              <ArticleList path="/articles" />
-              <Topics path="/topics" />
-              <ArticleList path="/topics/:topic" />
-              <SingleArticle path="article/:article_id" username={username} />
+        <Router>
+          <Home path="/" />
+          <ArticleList path="/articles" />
+          <Topics path="/topics" />
+          <ArticleList path="/topics/:topic" />
+          <SingleArticle path="article/:article_id" username={username} />
 
-              <CommentsList
-                path="/articles/:article_id/comments"
-                username={username}
-              />
-              <Users path="/users/:username" username={username} />
-              <CommentsList path="/comments/:article_id" username={username} />
-              <ErrorPage default />
-            </Router>
-          </div>
-          <div className="w-100"></div>
-        </div>
-      </section>
+          <CommentsList
+            path="/articles/:article_id/comments"
+            username={username}
+          />
+          <Users path="/users/:username" username={username} />
+
+          <ErrorPage default />
+        </Router>
+      </div>
     );
   }
 

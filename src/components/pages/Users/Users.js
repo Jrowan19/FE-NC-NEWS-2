@@ -5,7 +5,7 @@ import ErrorPage from '../ErrorPage';
 
 class User extends Component {
   state = {
-    user: [],
+    user: '',
     isLoading: true
   };
 

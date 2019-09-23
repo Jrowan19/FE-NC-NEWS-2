@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import * as api from '../../../api';
-
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import CommentsList from '../comments/CommentsList';
-
 import ErrorPage from '../ErrorPage';
+import Voting from '../../Voting';
 
 class SingleArticle extends Component {
   state = {
     article: [],
     isLoading: true,
     error: null,
-    showComments: false,
-    showVoting: false
+    showComments: false
   };
   render() {
     const { article, isLoading, showComments, error } = this.state;
@@ -48,6 +46,7 @@ class SingleArticle extends Component {
                     <p className="text-white">
                       Date Posted: {new Date(created_at).toLocaleString()}{' '}
                     </p>
+                    <Voting votes={votes} author={author} username={username} />
 
                     <button
                       className="btn btn-outline-light"

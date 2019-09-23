@@ -13,7 +13,7 @@ export const getData = URL => {
 };
 
 export const getArticlesWithParams = (topic, sort_by, order, article_id) => {
-  let url = '/articles';
+  const url = '/articles';
   return request
     .get(url, {
       params: {
@@ -29,15 +29,14 @@ export const getArticlesWithParams = (topic, sort_by, order, article_id) => {
 };
 
 export const getAllTopics = () => {
-  let url = '/topics';
+  const url = '/topics';
   return request.get(url).then(({ data: { topics } }) => {
     return topics;
   });
 };
 
 export const getSingleArticle = endpoint => {
- 
-  let url = `/${endpoint}`;
+  const url = `/${endpoint}`;
   return request.get(url).then(({ data: { article } }) => {
     return article;
   });
@@ -51,7 +50,7 @@ export const getComments = article_id => {
 };
 
 export const postComment = (article_id, body, { username }) => {
-  let url = `/articles/${article_id}/comments`;
+  const url = `/articles/${article_id}/comments`;
   return request
     .post(url, {
       body,
@@ -71,7 +70,7 @@ export const deleteComment = comment_id => {
 };
 
 export const getUser = endpoint => {
-  let url = `/users/${endpoint}`;
+  const url = `/users/${endpoint}`;
   return request.get(url).then(({ data }) => {
     return data.users;
   });

@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import * as api from '../../../api';
 import ArticleCard from './ArticleCard';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
-import Sorter from '../../../Sorter';
+import Sorter from '../../Sorter';
 import ErrorPage from '../ErrorPage';
 
 class ArticleList extends Component {
   state = {
     articles: null,
-    topic: '',
     sort_by: 'created_at',
     order: 'desc',
     article_id: '',
