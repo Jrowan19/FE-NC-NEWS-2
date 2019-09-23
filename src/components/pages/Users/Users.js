@@ -47,8 +47,10 @@ class User extends Component {
       .then(({ user }) => {
         this.setState({ user, isLoading: false });
       })
-      .catch(error => {
-        this.setState({ error });
+      .catch(({ response: { data: { message }, status } }) => {
+        this.setState({
+          error: { message, status }
+        });
       });
   };
 }

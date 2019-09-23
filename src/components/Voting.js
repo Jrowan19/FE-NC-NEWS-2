@@ -22,7 +22,7 @@ class Voting extends Component {
               <i className="fas fa-thumbs-up"></i>
             </button>
           )}
-         
+
           <button
             type="button"
             className="btn btn-outline-secondary btn-sm mx-auto text-white"

@@ -2,7 +2,7 @@ import React from 'react';
 
 const ErrorPage = ({ error: { status, message } }) => {
   return (
-    <h1>
+    <h1 className="error-bg text-white" style={{ height: '40rem' }}>
       Whoops.....{status} {message}
     </h1>
   );

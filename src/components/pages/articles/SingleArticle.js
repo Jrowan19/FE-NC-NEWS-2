@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import * as api from '../../../api';
-import { Link, Router } from '@reach/router';
+
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import CommentsList from '../comments/CommentsList';
-import Voting from '../../Voting';
+
 import ErrorPage from '../ErrorPage';
 
 class SingleArticle extends Component {
@@ -101,8 +101,10 @@ class SingleArticle extends Component {
         console.log(article);
         this.setState({ article, isLoading: false });
       })
-      .catch(error => {
-        this.setState({ error });
+      .catch(({ response: { data: { message }, status } }) => {
+        this.setState({
+          error: { message, status }
+        });
       });
   };
 }

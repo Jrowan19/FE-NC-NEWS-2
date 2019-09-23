@@ -36,7 +36,7 @@ export const getAllTopics = () => {
 };
 
 export const getSingleArticle = endpoint => {
-  console.log(endpoint);
+ 
   let url = `/${endpoint}`;
   return request.get(url).then(({ data: { article } }) => {
     return article;

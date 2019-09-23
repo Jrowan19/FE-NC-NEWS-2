@@ -20,10 +20,12 @@ class Topics extends Component {
           return (
             <ul
               className=" row card mb-3 mx-auto nightBg text-white border border-light"
+              topic={topic}
+              key={topic.slug}
               style={{ width: '540px' }}
             >
               <li className="row no-gutters">
-                <div class="col-md-4">
+                <div className="col-md-4">
                   <img
                     src="https://pbs.twimg.com/profile_images/728482145082073088/lp46310N_400x400.jpg"
                     className="card img-fluid"
@@ -31,18 +33,20 @@ class Topics extends Component {
                     alt="..."
                   />
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body">
+                <div className="col-md-8">
+                  <div className="card-body">
                     <Link to={`/topics/${topic.slug}`}>
-                      <h5 class="card-title">{topic.slug} Articles</h5>
+                      <h5 className="card-title">{topic.slug} Articles</h5>
                     </Link>
-                    <p class="card-text">
+                    <p className="card-text">
                       This is a wider card with supporting text below as a
                       natural lead-in to additional content. This content is a
                       little bit longer.
                     </p>
-                    <p class="card-text">
-                      <small class="text-muted">Last updated 3 mins ago</small>
+                    <p className="card-text">
+                      <small className="text-muted">
+                        Last updated 3 mins ago
+                      </small>
                     </p>
                   </div>
                 </div>
@@ -64,8 +68,10 @@ class Topics extends Component {
       .then(topics => {
         this.setState({ topics, isLoading: false });
       })
-      .catch(error => {
-        this.setState({ error });
+      .catch(({ response: { data: { message }, status } }) => {
+        this.setState({
+          error: { message, status }
+        });
       });
   };
 }

@@ -5,8 +5,6 @@ import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import Sorter from '../../../Sorter';
 import ErrorPage from '../ErrorPage';
 
-import Pagination from '../../Pagination';
-
 class ArticleList extends Component {
   state = {
     articles: null,
@@ -15,8 +13,7 @@ class ArticleList extends Component {
     order: 'desc',
     article_id: '',
     isLoading: true,
-    error: null,
-    pageSize: 4
+    error: null
   };
   render() {
     const { articles, isLoading, error } = this.state;
@@ -30,12 +27,6 @@ class ArticleList extends Component {
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}
-
-          <Pagination
-            itemsCount={this.state.articles.length}
-            pageSize={this.state.pageSize}
-            onPageChange={this.handlePageChange}
-          />
         </div>
       </>
     );
@@ -63,8 +54,10 @@ class ArticleList extends Component {
       .then(articles => {
         this.setState({ articles, isLoading: false });
       })
-      .catch(error => {
-        this.setState({ error });
+      .catch(({ response: { data: { message }, status } }) => {
+        this.setState({
+          error: { message, status }
+        });
       });
   };
 }

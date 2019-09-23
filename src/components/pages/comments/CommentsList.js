@@ -98,8 +98,10 @@ class CommentsList extends Component {
           return { comments: [newComment, ...comments] };
         });
       })
-      .catch(error => {
-        this.setState({ error });
+      .catch(({ response: { data: { message }, status } }) => {
+        this.setState({
+          error: { message, status }
+        });
       });
   };
 
