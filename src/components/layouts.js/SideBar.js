@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '@reach/router';
 
-const SideBar = (props) => {
+const SideBar = props => {
   return (
     <>
       <div className="container-fluid ">
@@ -43,7 +43,7 @@ const SideBar = (props) => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/users/jessjelly">
+                  <Link className="nav-link" to={`/users/${props.author}`}>
                     <span data-feather="layers"></span>
                     Users
                   </Link>

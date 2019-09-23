@@ -40,8 +40,7 @@ class User extends Component {
   }
 
   fetchUser = () => {
-    const author = this.props.username;
-    const URL = `users/${author}`;
+    const URL = `users/${this.props.username}`;
     api
       .getData(URL)
       .then(({ user }) => {

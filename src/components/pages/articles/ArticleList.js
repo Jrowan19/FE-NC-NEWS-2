@@ -42,10 +42,6 @@ class ArticleList extends Component {
     }
   };
 
-  handlePageChange = page => {
-    console.log(page);
-  };
-
   fetchArticles = (sort_by, order) => {
     const { topic, article_id } = this.props;
 
