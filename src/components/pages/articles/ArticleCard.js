@@ -36,20 +36,3 @@ const ArticleCard = props => {
 };
 
 export default ArticleCard;
-
-{
-  /* <div className="card-body">
-<h3 className="card-title">{title}</h3>
-<p className="card-text"> {topic}</p>
-<div className="card-header text-uppercase">
-  {author} - Posted - {moment(created_at).fromNow()}
-</div>
-<p className="card-text">Votes: {votes}</p>
-<p className="card-text">Comments : {comment_count}</p>
-<Link to={`/article/${article_id}`}>
-  <button className="btn btn-outline-primary"> View Article </button>
-</Link>
-</div>
-</div>
-</section> */
-}

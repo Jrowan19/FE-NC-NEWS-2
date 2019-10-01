@@ -30,6 +30,7 @@ class Sorter extends Component {
           <button className="btn btn-outline-secondary btn-sm ml-2 text-white">
             Sort!
           </button>
+          
         </form>
       </div>
     );
@@ -37,7 +38,7 @@ class Sorter extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    console.log(name);
+
     this.setState({ [name]: value });
   };
 

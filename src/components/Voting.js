@@ -48,10 +48,10 @@ class Voting extends Component {
   }
 
   updateVotes = inc_votes => {
-    console.log(inc_votes);
+   
     const { article_id, comment_id } = this.props;
     api.updateVotes(article_id, comment_id, inc_votes).catch(error => {
-      console.log(comment_id);
+     
       this.setState(({ voteChange }) => {
         return { voteChange: voteChange - inc_votes };
       });

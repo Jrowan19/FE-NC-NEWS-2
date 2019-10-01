@@ -4,7 +4,7 @@ import ArticleCard from './ArticleCard';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import Sorter from '../../Sorter';
 import ErrorPage from '../ErrorPage';
-import Pagination from '../../layouts.js/Pagination';
+//import Pagination from '../../layouts.js/Pagination';
 
 class ArticleList extends Component {
   state = {
@@ -13,12 +13,12 @@ class ArticleList extends Component {
     order: 'desc',
     article_id: '',
     isLoading: true,
-    error: null,
-    p: 1,
-    pMax: null
+    error: null
+    // p: 1,
+    // pMax: null
   };
   render() {
-    const { articles, isLoading, error, p, pMax } = this.state;
+    const { articles, isLoading, error } = this.state;
     if (error) return <ErrorPage error={error} />;
     if (isLoading) return <LoadingSpinner />;
     return (
@@ -29,11 +29,11 @@ class ArticleList extends Component {
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}
-          <Pagination
+          {/* <Pagination
             handlePageChange={this.handlePageChange}
             p={p}
             pMax={pMax}
-          />
+          /> */}
         </div>
       </>
     );

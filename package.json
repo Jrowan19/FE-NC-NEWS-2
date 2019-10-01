@@ -6,8 +6,11 @@
     "@reach/router": "^1.2.1",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "deploy": "^1.0.3",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
+    "netlify": "^2.4.8",
+    "netlify-cli": "^2.15.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-kawaii": "^0.14.4",
@@ -48,5 +51,5 @@
   "bugs": {
     "url": "https://github.com/Jrowan19/FE-NC-NEWS-2/issues"
   },
-  "homepage": "https://github.com/Jrowan19/FE-NC-NEWS-2#readme"
+  "homepage": "."
 }

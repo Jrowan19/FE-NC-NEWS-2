@@ -61,9 +61,8 @@ const NavBar = props => {
             </Link>
           </li>
           <li className="nav-item dropdown mt-4 mb-2">
-            <a
+            <div
               className="nav-link dropdown-toggle text-white font-weight-bold"
-              href="#"
               id="navbarDropdown"
               role="button"
               data-toggle="dropdown"
@@ -71,7 +70,7 @@ const NavBar = props => {
               aria-expanded="false"
             >
               <button className="btn btn-outline-danger"> Topics</button>
-            </a>
+            </div>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item " to="/topics">
                 All
