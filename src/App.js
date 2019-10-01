@@ -10,15 +10,13 @@ import SingleArticle from './components/pages/articles/SingleArticle';
 import CommentsList from './components/pages/comments/CommentsList';
 import ErrorPage from './components/pages/ErrorPage';
 import Users from './components/pages/Users/Users';
-import SideBar from './components/layouts.js/SideBar';
 
 class App extends Component {
   state = {
-    username: 'jessjelly',
-    toggleSideBar: true
+    username: 'jessjelly'
   };
   render() {
-    const { username, toggleSideBar } = this.state;
+    const { username } = this.state;
     return (
       <div className="App">
         <NavBar username={username} handleUserChange={this.handleUserChange} />
@@ -35,8 +33,10 @@ class App extends Component {
             username={username}
           />
           <Users path="/users/:username" username={username} />
-
-          <ErrorPage default />
+          <ErrorPage
+            default
+            error={{ message: 'route not found', status: 404 }}
+          />
         </Router>
       </div>
     );
@@ -47,9 +47,9 @@ class App extends Component {
     this.setState({ username: value });
   };
 
-  handleSideBar = () => {
-    this.setState(prevState => ({ toggleSideBar: !prevState.toggleSideBar }));
-  };
+  // handleSideBar = () => {
+  //   this.setState(prevState => ({ toggleSideBar: !prevState.toggleSideBar }));
+  // };
 }
 
 export default App;

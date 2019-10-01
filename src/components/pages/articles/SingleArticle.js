@@ -4,13 +4,14 @@ import LoadingSpinner from '../../layouts.js/LoadingSpinner';
 import CommentsList from '../comments/CommentsList';
 import ErrorPage from '../ErrorPage';
 import Voting from '../../Voting';
+import moment from 'moment';
 
 class SingleArticle extends Component {
   state = {
     article: [],
     isLoading: true,
     error: null,
-    showComments: false
+    showComments: true
   };
   render() {
     const { article, isLoading, showComments, error } = this.state;
@@ -31,7 +32,7 @@ class SingleArticle extends Component {
 
     return (
       <>
-        <div className="nightBg single-div">
+        <div className="nightBg single-div single-art">
           <section className="mx-auto">
             <div className="row">
               <div className="col-sm-6 mx-auto">
@@ -44,9 +45,14 @@ class SingleArticle extends Component {
                     <p className="text-white">Votes: {votes}</p>
                     <p className="text-white">Comments: {comment_count}</p>
                     <p className="text-white">
-                      Date Posted: {new Date(created_at).toLocaleString()}{' '}
+                      Date Posted: {moment(created_at).fromNow()}
                     </p>
-                    <Voting votes={votes} author={author} username={username} />
+                    <Voting
+                      votes={votes}
+                      author={author}
+                      username={username}
+                      article_id={article_id}
+                    />
 
                     <button
                       className="btn btn-outline-light"
@@ -74,6 +80,10 @@ class SingleArticle extends Component {
 
   componentDidMount = () => {
     this.fetchSingleArticle();
+  };
+
+  componentDidUpdate = prevProps => {
+    if (prevProps.votes !== this.props.votes) this.updateVotes();
   };
 
   fetchComments = () => {

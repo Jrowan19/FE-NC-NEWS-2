@@ -82,3 +82,11 @@ export const updateVotes = (article_id, comment_id, inc_votes) => {
     : `${baseUrl}/comments/${comment_id}`;
   return axios.patch(URL, { inc_votes });
 };
+
+export const getAllUsers = () => {
+  const url = `/users`;
+  return request.get(url).then(({ data: { users } }) => {
+    return users;
+  });
+};
+

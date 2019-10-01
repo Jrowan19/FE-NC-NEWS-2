@@ -5,6 +5,7 @@ import Voting from '../../Voting';
 import { Link } from '@reach/router';
 import CommentAdder from './CommentAdder';
 import moment from 'moment';
+import ErrorPage from '../ErrorPage';
 
 class CommentsList extends Component {
   state = {
@@ -14,6 +15,7 @@ class CommentsList extends Component {
   };
   render() {
     const { comments, isLoading, error } = this.state;
+    if (error) return <ErrorPage error={error} />;
     const { username } = this.props;
     if (isLoading) return <LoadingSpinner />;
     return (

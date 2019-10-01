@@ -88,7 +88,7 @@ const NavBar = props => {
               value={props.username}
               onChange={props.handleUserChange}
             >
-              <option value="jessjelly"> jessjelly</option>
+              <option value="jessjelly"> jessjelly </option>
               <option value="grumpy19">grumpy19</option>
               <option value="cooljmessy">cooljmessy</option>
               <option value="tickle122"> tickle122</option>

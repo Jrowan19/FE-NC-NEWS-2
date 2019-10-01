@@ -89,6 +89,7 @@ body {
   padding-top: 1rem;
   overflow-x: hidden;
   overflow-y: auto;
+  transition: 0.5s;
 }
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {
@@ -158,4 +159,12 @@ body {
 
 .sb-bg-1 {
   background-image: url('https://image.freepik.com/free-vector/space-background-with-fictional-planets_1048-9013.jpg');
+}
+
+.comments {
+  transition: 0.5s;
+}
+
+.single-art {
+  height: 50rem;
 }
