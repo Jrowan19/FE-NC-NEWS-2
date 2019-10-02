@@ -46,10 +46,6 @@ class App extends Component {
     const { value } = e.target;
     this.setState({ username: value });
   };
-
-  // handleSideBar = () => {
-  //   this.setState(prevState => ({ toggleSideBar: !prevState.toggleSideBar }));
-  // };
 }
 
 export default App;

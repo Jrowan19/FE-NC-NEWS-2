@@ -14,8 +14,7 @@ class ArticleList extends Component {
     article_id: '',
     isLoading: true,
     error: null
-    // p: 1,
-    // pMax: null
+   
   };
   render() {
     const { articles, isLoading, error } = this.state;
@@ -29,11 +28,8 @@ class ArticleList extends Component {
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}
-          {/* <Pagination
-            handlePageChange={this.handlePageChange}
-            p={p}
-            pMax={pMax}
-          /> */}
+         
+
         </div>
       </>
     );

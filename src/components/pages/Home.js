@@ -61,7 +61,7 @@ const Home = props => {
               </div>
             </div>
           </div>
-          <a
+          <div
             className="carousel-control-prev"
             href="#carouselExampleCaptions"
             role="button"
@@ -69,8 +69,8 @@ const Home = props => {
           >
             <span className="carousel-control-prev-icon" aria-hidden="true" />
             <span className="sr-only">Previous</span>
-          </a>
-          <a
+          </div>
+          <div
             className="carousel-control-next"
             href="#carouselExampleCaptions"
             role="button"
@@ -78,7 +78,7 @@ const Home = props => {
           >
             <span className="carousel-control-next-icon" aria-hidden="true" />
             <span className="sr-only">Next</span>
-          </a>
+          </div>
         </div>
       </div>
       <ArticleList className="mt-1" />

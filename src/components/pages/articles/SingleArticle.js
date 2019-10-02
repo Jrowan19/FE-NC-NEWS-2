@@ -59,7 +59,7 @@ class SingleArticle extends Component {
                       onClick={this.fetchComments}
                     >
                       {' '}
-                      See Comments
+                      Show Comments
                     </button>
 
                     {showComments && (
