@@ -55,7 +55,7 @@ class SingleArticle extends Component {
                     />
 
                     <button
-                      className="btn btn-outline-light m-3"
+                      className={this.buttonClass()}
                       onClick={this.fetchComments}
                     >
                       {showComments === true
@@ -93,6 +93,11 @@ class SingleArticle extends Component {
     });
   };
 
+  buttonClass = () => {
+    let classes = 'btn btn-md m-3 btn-';
+    classes += this.state.showComments === true ? 'danger' : 'warning';
+    return classes;
+  };
   componentDidMount() {
     api
       .getComments(this.props.article_id)

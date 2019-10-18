@@ -14,10 +14,12 @@ import AllUsers from './components/pages/Users/AllUsers';
 
 class App extends Component {
   state = {
-    username: 'jessjelly'
+    username: 'jessjelly',
+    error: null
   };
   render() {
-    const { username } = this.state;
+    const { username, error } = this.state;
+    if (error) return <ErrorPage error={error} />;
     return (
       <div className="App">
         <NavBar username={username} handleUserChange={this.handleUserChange} />
