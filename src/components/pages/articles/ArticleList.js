@@ -21,7 +21,7 @@ class ArticleList extends Component {
     if (isLoading) return <LoadingSpinner />;
     return (
       <>
-        <div className={this.props.handleDarkMode()}>
+        <div className="nightBg">
           <h3 className="text-white">Sort Articles! </h3>
           <Sorter fetchArticles={this.fetchArticles} />
           {articles.map(article => {

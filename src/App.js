@@ -14,37 +14,19 @@ import AllUsers from './components/pages/Users/AllUsers';
 
 class App extends Component {
   state = {
-    username: 'jessjelly',
-    toggleDarkMode: false
+    username: 'jessjelly'
   };
   render() {
     const { username } = this.state;
     return (
       <div className="App">
         <NavBar username={username} handleUserChange={this.handleUserChange} />
-        <button
-          className={this.classesMode()}
-          onClick={() => this.handleMode()}
-        >
-          Dark Mode
-        </button>
+
         <Router>
-          <Home
-            path="/"
-            username={username}
-            handleDarkMode={this.handleDarkMode}
-          />
-          <ArticleList
-            path="/articles"
-            username={username}
-            handleDarkMode={this.handleDarkMode}
-          />
+          <Home path="/" username={username} />
+          <ArticleList path="/articles" username={username} />
           <Topics path="/topics" username={username} />
-          <ArticleList
-            path="/topics/:topic"
-            username={username}
-            handleDarkMode={this.handleDarkMode}
-          />
+          <ArticleList path="/topics/:topic" username={username} />
           <SingleArticle path="article/:article_id" username={username} />
 
           <CommentsList
@@ -67,21 +49,21 @@ class App extends Component {
     this.setState({ username: value });
   };
 
-  handleMode = () => {
-    this.setState(prevState => ({ toggleDarkMode: !prevState.toggleDarkMode }));
-  };
+  // handleMode = () => {
+  //   this.setState(prevState => ({ toggleDarkMode: !prevState.toggleDarkMode }));
+  // };
 
-  handleDarkMode = () => {
-    let darkMode = 'bg-';
-    darkMode += this.state.toggleDarkMode === true ? 'dark' : 'light';
-    return darkMode;
-  };
+  // handleDarkMode = () => {
+  //   let darkMode = 'bg-';
+  //   darkMode += this.state.toggleDarkMode === true ? 'dark' : 'light';
+  //   return darkMode;
+  // };
 
-  classesMode = () => {
-    let classes = 'btn m-2 btn-';
-    classes += this.state.toggleMode === true ? 'primary' : 'outline-danger';
-    return classes;
-  };
+  // classesMode = () => {
+  //   let classes = 'btn m-2 btn-';
+  //   classes += this.state.toggleMode === true ? 'primary' : 'outline-danger';
+  //   return classes;
+  // };
 }
 
 export default App;
