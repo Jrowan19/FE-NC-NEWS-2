@@ -11,7 +11,7 @@ class SingleArticle extends Component {
     article: [],
     isLoading: true,
     error: null,
-    showComments: true
+    showComments: false
   };
   render() {
     const { article, isLoading, showComments, error } = this.state;
@@ -55,11 +55,12 @@ class SingleArticle extends Component {
                     />
 
                     <button
-                      className="btn btn-outline-light"
+                      className="btn btn-outline-light m-3"
                       onClick={this.fetchComments}
                     >
-                      {' '}
-                    Display Comments
+                      {showComments === true
+                        ? 'Hide Comments'
+                        : 'Show Comments'}
                     </button>
 
                     {showComments && (
@@ -107,7 +108,6 @@ class SingleArticle extends Component {
     api
       .getSingleArticle(`articles/${this.props.article_id}`)
       .then(article => {
-      
         this.setState({ article, isLoading: false });
       })
       .catch(({ response: { data: { message }, status } }) => {

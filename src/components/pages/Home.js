@@ -2,10 +2,10 @@ import React from 'react';
 import ArticleList from './articles/ArticleList';
 import { Link } from '@reach/router';
 
-const Home = props => {
+const Home = ({ handleDarkMode }) => {
   return (
     <div>
-      <div className="bd-example nightBg card-padding">
+      <div className={handleDarkMode()} style={{ paddingTop: '170px' }}>
         <div
           id="carouselExampleCaptions"
           className="carousel slide"

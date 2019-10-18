@@ -25,7 +25,7 @@ class AllUsers extends Component {
     );
   }
 
-  componentDidUpdate = () => {
+  componentDidMount = () => {
     this.fetchAllUsers();
   };
 

@@ -46,10 +46,10 @@
   height: 100rem;
 }
 
-body {
+/* body {
   padding-top: 320px;
   background-color: black;
-}
+} */
 
 .card-padding {
   padding-left: 20px;
@@ -140,6 +140,11 @@ body {
 
 .sidebar .nav-link.active {
   color: #007bff;
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
 }
 
 .sidebar .nav-link:hover .feather,

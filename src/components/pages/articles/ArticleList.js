@@ -14,7 +14,6 @@ class ArticleList extends Component {
     article_id: '',
     isLoading: true,
     error: null
-   
   };
   render() {
     const { articles, isLoading, error } = this.state;
@@ -22,14 +21,12 @@ class ArticleList extends Component {
     if (isLoading) return <LoadingSpinner />;
     return (
       <>
-        <div className="nightBg ">
+        <div className={this.props.handleDarkMode()}>
           <h3 className="text-white">Sort Articles! </h3>
           <Sorter fetchArticles={this.fetchArticles} />
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}
-         
-
         </div>
       </>
     );

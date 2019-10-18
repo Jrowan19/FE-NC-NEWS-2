@@ -108,7 +108,6 @@ class CommentsList extends Component {
   };
 
   removeComment = comment_id => {
-   
     api.deleteComment(comment_id);
     this.setState(({ comments }) => {
       return {
