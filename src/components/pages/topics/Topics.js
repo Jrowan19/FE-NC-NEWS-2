@@ -15,20 +15,19 @@ class Topics extends Component {
     if (error) return <ErrorPage error={error} />;
     if (isLoading) return <LoadingSpinner />;
     return (
-      <div className="bg-dark mx-auto">
-        <div className="container-fluid bg-dark mx-auto" style={{ height: 35 }}>
+      <div className="bg-dark mx-auto row">
+        <div className="container bg-dark mx-auto row" style={{ height: 35 }}>
           <div className="row">
             <div className="col"></div>
           </div>
         </div>
-        <div className=" card row mx-auto bg-dark" style={{ width: '20rem' }}>
+        <div className=" card row mx-auto bg-dark">
           {topics.map(topic => {
             return (
               <ul
                 className=" row card mb-3 bg-dark text-white border border-primary mx-auto"
                 topic={topic}
                 key={topic.slug}
-                style={{ width: '540px' }}
               >
                 <li className="row no-gutters bg-dark">
                   <div className="card-body bg-dark">
