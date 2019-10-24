@@ -95,7 +95,7 @@ class CommentsList extends Component {
       .postComment(article_id, comment, { username })
       .then(newComment => {
         this.setState(({ comments }) => {
-          console.log(newComment);
+          
           return { comments: [newComment, ...comments] };
         });
       })

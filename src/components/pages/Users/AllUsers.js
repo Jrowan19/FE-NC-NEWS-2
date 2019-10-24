@@ -53,7 +53,6 @@ class AllUsers extends Component {
     const { username, avatar_url, name } = this.props;
     api.postUser(username, avatar_url, name, user).then(newUser => {
       this.setState(({ users }) => {
-        console.log(users);
         return { users: [...users, newUser] };
       });
     });

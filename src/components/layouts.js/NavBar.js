@@ -92,7 +92,6 @@ class NavBar extends Component {
                 <option value="grumpy19">grumpy19</option>
                 <option value="cooljmessy">cooljmessy</option>
                 <option value="tickle122"> tickle122</option>
-                <option value="rowandinho"> rowandinho</option>
               </select>
               <Link
                 className="btn btn-outline-primary btn-sm m-2"
