@@ -8,14 +8,14 @@ class CommentAdder extends Component {
     const { body } = this.state;
 
     return (
-      <form className="row mx-auto Home nightBg" onSubmit={this.handleSubmit}>
-        <div className="form-group mx-auto nightBg" style={{ width: '50rem' }}>
+      <form className="row mx-auto Home bg-dark" onSubmit={this.handleSubmit}>
+        <div className="form-group mx-auto bg-dark" style={{ width: '50rem' }}>
           <span className="badge badge-light badge badge-lg mt-4 text-dark">
             Comments
           </span>
 
           <textarea
-            className="form-control mt-1 bg-white"
+            className="form-control mt-1 bg-white border border-primary"
             style={{ height: '8rem' }}
             type="text"
             name="body"
@@ -24,18 +24,17 @@ class CommentAdder extends Component {
             minLength="1"
             required
             value={body}
-            onChange={event => this.handleChange(event.target.value, 'body')}
+            onChange={this.handleChange}
           />
-          <button className="btn btn-secondary btn-sm">Add Comment</button>§
+          <button className="btn btn-secondary btn-sm">Add Comment</button>
         </div>
       </form>
     );
   }
 
-  handleChange = (text, value) => {
-    this.setState({
-      [value]: text
-    });
+  handleChange = event => {
+    const { value } = event.target;
+    this.setState({ body: value });
   };
 
   handleSubmit = event => {

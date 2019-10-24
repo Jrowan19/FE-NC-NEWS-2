@@ -15,7 +15,7 @@ const ArticleCard = props => {
   return (
     <section className="row mt-3 card-padding">
       <div
-        className="card text-center mb-2 mx-auto border border-light text-white nightBg "
+        className="card text-center mb-2 mx-auto border border-primary text-white bg-dark "
         style={{ width: '40rem' }}
       >
         <div className="card-body">

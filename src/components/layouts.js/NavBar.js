@@ -4,14 +4,7 @@ import { Link } from '@reach/router';
 class NavBar extends Component {
   render() {
     return (
-      
-      <nav
-        className="navbar navbar-expand-lg navbar-light nav-background fixed-top border border-nav-border"
-        style={{
-          marginLeft: 5,
-          marginRight: 5
-        }}
-      >
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border border-primary">
         <Link
           className="navbar-brand text-danger m-5 text-right font-weight-bold "
           to="/"

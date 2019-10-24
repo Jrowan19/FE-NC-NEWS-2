@@ -26,13 +26,13 @@ class CommentsList extends Component {
         <div>
           {comments.map(comment => {
             return (
-              <section className="row mx-auto nightBg" key={comment.comment_id}>
+              <section className="row mx-auto bg-dark" key={comment.comment_id}>
                 <div
-                  className="card nightBg mx-auto border border-dark mb-2 text-white"
+                  className="card bg-dark mx-auto border border-primary mb-2 text-white "
                   style={{ width: '50rem' }}
                 >
                   <Link to={`/comments/${this.props.article_id}`}>
-                    <h5 className="card-title text-white text-uppercase nav-background  active text-white border border-white">
+                    <h5 className="card-title text-white text-uppercase bg-dark active text-white border border-primary">
                       {comment.author} Posted{' '}
                       {moment(comment.created_at).fromNow()}
                     </h5>
@@ -95,6 +95,7 @@ class CommentsList extends Component {
       .postComment(article_id, comment, { username })
       .then(newComment => {
         this.setState(({ comments }) => {
+          console.log(newComment);
           return { comments: [newComment, ...comments] };
         });
       })

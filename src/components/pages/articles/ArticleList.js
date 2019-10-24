@@ -21,7 +21,12 @@ class ArticleList extends Component {
     if (isLoading) return <LoadingSpinner />;
     return (
       <>
-        <div className="nightBg">
+        <div className="bg-dark">
+          <div className="container-fluid bg-dark" style={{ height: 35 }}>
+            <div className="row">
+              <div className="col"></div>
+            </div>
+          </div>
           <h3 className="text-white">Sort Articles! </h3>
           <Sorter fetchArticles={this.fetchArticles} />
           {articles.map(article => {

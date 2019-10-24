@@ -32,12 +32,20 @@ class SingleArticle extends Component {
 
     return (
       <>
-        <div className="nightBg single-div single-art">
-          <section className="mx-auto">
-            <div className="row">
+        <div className="container-fluid bg-dark" style={{ height: 35 }}>
+          <div className="row">
+            <div className="col"></div>
+          </div>
+        </div>
+        <div
+          className="bg-dark single-div single-art"
+          style={{ paddingLeft: 5, paddingRight: 5 }}
+        >
+          <section className="mx-auto bg-dark">
+            <div className="row bg-dark">
               <div className="col-sm-6 mx-auto">
                 <div className="card">
-                  <div className="card-body nightBg">
+                  <div className="card-body bg-dark">
                     <h1 className="card-title text-white">{title}</h1>
                     <h4 className="text-white">Author: {author}</h4>
                     <h3 className="text-white">{topic}</h3>

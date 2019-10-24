@@ -16,9 +16,14 @@ class User extends Component {
     const { username, name, avatar_url } = user;
 
     return (
-      <section className="nightBg">
+      <section className="bg-dark" style={{ height: 800 }}>
+        <div className="container-fluid bg-dark" style={{ height: 35 }}>
+          <div className="row">
+            <div className="col"></div>
+          </div>
+        </div>
         <div
-          className="card mx-auto nightBg text-white border border-white"
+          className="card mx-auto bg-dark text-white border border-white"
           style={{ width: '18rem' }}
         >
           <img className="card-img-top" src={avatar_url} alt="profile" />

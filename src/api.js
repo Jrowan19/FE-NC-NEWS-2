@@ -61,6 +61,10 @@ export const postComment = (article_id, body, { username }) => {
     });
 };
 
+export const postUser = user => {
+  return request.post('/users', user).then(({ data: { user } }) => user);
+};
+
 export const deleteComment = comment_id => {
   return request
     .delete(`/comments/${comment_id}`, { comment_id })

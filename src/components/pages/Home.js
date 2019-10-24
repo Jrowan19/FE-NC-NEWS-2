@@ -5,7 +5,12 @@ import { Link } from '@reach/router';
 const Home = props => {
   return (
     <div>
-      <div className="bd-example nightBg card-padding">
+      <div className="container-fluid bg-dark" style={{ height: 35 }}>
+        <div className="row">
+          <div className="col"></div>
+        </div>
+      </div>
+      <div className="bd-example bg-dark card-padding">
         <div
           id="carouselExampleCaptions"
           className="carousel slide"
