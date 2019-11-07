@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoadingSpinner = () => {
   return (
-    <>
+    <div className="bg-dark">
       <div className="spinner-grow text-primary" role="status">
         <span className="sr-only">Loading...</span>
       </div>
@@ -27,7 +27,7 @@ const LoadingSpinner = () => {
       <div className="spinner-grow text-dark" role="status">
         <span className="sr-only">Loading...</span>
       </div>
-    </>
+    </div>
   );
 };
 

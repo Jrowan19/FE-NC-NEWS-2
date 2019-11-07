@@ -55,7 +55,13 @@ body {
   padding-right: 20px;
 }
 
+.showComs {
+  transition: all;
+}
 
+.showComs:hover {
+  transform: scale(1.2);
+}
 
 .error-bg {
   background-image: url('https://cdn.vox-cdn.com/thumbor/eWUMuzoAgt53UXWM0YBaLfrwcxo=/0x0:2560x1440/1200x800/filters:focal(1178x382:1586x790)/cdn.vox-cdn.com/uploads/chorus_image/image/56864711/blade_runner.0.jpg');

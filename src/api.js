@@ -61,10 +61,6 @@ export const postComment = (article_id, body, { username }) => {
     });
 };
 
-export const postUser = user => {
-  return request.post('/users', user).then(({ data: { user } }) => user);
-};
-
 export const deleteComment = comment_id => {
   return request
     .delete(`/comments/${comment_id}`, { comment_id })
@@ -73,10 +69,22 @@ export const deleteComment = comment_id => {
     });
 };
 
+export const deleteUser = username => {
+  return request.delete(`/users/${username}`, { username }).then(({ data }) => {
+    console.log(data);
+    return data.user;
+  });
+};
 export const getUser = endpoint => {
   const url = `/users/${endpoint}`;
-  return request.get(url).then(({ data }) => {
-    return data.users;
+  return request.get(url).then(({ data: { users } }) => {
+    return users;
+  });
+};
+
+export const postUser = newUser => {
+  return request.post('/users', newUser).then(({ data: { user } }) => {
+    return user;
   });
 };
 

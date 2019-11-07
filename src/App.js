@@ -11,7 +11,7 @@ import CommentsList from './components/pages/comments/CommentsList';
 import ErrorPage from './components/pages/ErrorPage';
 import Users from './components/pages/Users/Users';
 import AllUsers from './components/pages/Users/AllUsers';
-import AddUser from './components/pages/Users/AddUser';
+import SignUp from './components/pages/Users/SignUp';
 
 class App extends Component {
   state = {
@@ -31,11 +31,12 @@ class App extends Component {
           <Topics path="/topics" username={username} />
           <ArticleList path="/topics/:topic" username={username} />
           <SingleArticle path="article/:article_id" username={username} />
-          <AddUser path="/signup" handleUserChange={this.handleUserChange} />
+          <SignUp path="/signup" username={username} />
           <CommentsList
             path="/articles/:article_id/comments"
             username={username}
           />
+
           <Users path="/users/:username" username={username} />
           <ErrorPage
             default

@@ -13,6 +13,7 @@ class SingleArticle extends Component {
     error: null,
     showComments: false
   };
+
   render() {
     const { article, isLoading, showComments, error } = this.state;
     const { username } = this.props;
@@ -73,6 +74,7 @@ class SingleArticle extends Component {
 
                     {showComments && (
                       <CommentsList
+                        className="showComs"
                         article_id={article_id}
                         username={username}
                       />

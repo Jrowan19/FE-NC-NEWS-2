@@ -63,8 +63,7 @@ class CommentsList extends Component {
                           this.removeComment(comment.comment_id);
                       }}
                     >
-                      {' '}
-                      Delete Comment{' '}
+                      Delete Comment
                     </button>
                   )}
                 </div>
@@ -95,7 +94,6 @@ class CommentsList extends Component {
       .postComment(article_id, comment, { username })
       .then(newComment => {
         this.setState(({ comments }) => {
-          
           return { comments: [newComment, ...comments] };
         });
       })

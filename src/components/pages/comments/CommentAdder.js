@@ -33,8 +33,8 @@ class CommentAdder extends Component {
   }
 
   handleChange = event => {
-    const { value } = event.target;
-    this.setState({ body: value });
+    const { value, name } = event.target;
+    this.setState({ [name]: value });
   };
 
   handleSubmit = event => {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../../../api';
 import LoadingSpinner from '../../layouts.js/LoadingSpinner';
-import AddUser from './AddUser';
 
 class AllUsers extends Component {
   state = {
@@ -10,6 +9,7 @@ class AllUsers extends Component {
   };
   render() {
     const { users, isLoading } = this.state;
+    const { username } = this.props;
     if (isLoading) return <LoadingSpinner />;
     return (
       <div>
@@ -25,15 +25,27 @@ class AllUsers extends Component {
                 <li>{user.username}</li>
                 <li>{user.name}</li>
                 <li>{user.avatar_url}</li>
+                {username === user.username && (
+                  <button
+                    type="button"
+                    className="btn btn-outline-danger btn-sm mx-auto mt-3"
+                    style={{ width: '10rem' }}
+                    onClick={() => {
+                      if (
+                        window.confirm(
+                          'Are you sure you wish to delete this account?'
+                        )
+                      )
+                        this.removeUser(user.username);
+                    }}
+                  >
+                    {' '}
+                    Remove Account
+                  </button>
+                )}
               </ul>
             );
           })}
-          <AddUser
-            addUser={this.addUser}
-            username={this.props.username}
-            avatar_url={this.props.avatar_url}
-            name={this.props.name}
-          />
         </div>
       </div>
     );
@@ -43,18 +55,28 @@ class AllUsers extends Component {
     this.fetchAllUsers();
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.users !== this.state.users) {
+      api.getAllUsers(this.props.username).then(user => {
+        this.setState({ user, isLoading: false });
+      });
+    }
+  }
+
   fetchAllUsers = () => {
     api.getAllUsers().then(users => {
+      console.log(users);
       this.setState({ users, isLoading: false });
     });
   };
 
-  addUser = user => {
-    const { username, avatar_url, name } = this.props;
-    api.postUser(username, avatar_url, name, user).then(newUser => {
-      this.setState(({ users }) => {
-        return { users: [...users, newUser] };
-      });
+  removeUser = username => {
+    api.deleteUser(username);
+    this.setState(({ users }) => {
+      console.log(users);
+      return {
+        users: users.filter(user => user.username !== username)
+      };
     });
   };
 }
