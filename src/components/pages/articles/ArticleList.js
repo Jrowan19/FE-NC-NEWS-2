@@ -13,9 +13,7 @@ class ArticleList extends Component {
     order: 'desc',
     article_id: '',
     isLoading: true,
-    error: null,
-    paragraph:
-      'Suspendisse nec massa vel sem pretium efficitur. Suspendisse potenti. Nullam ultrices dolor in nisi lobortis condimentum. Vivamus a vulputate risus, vitae rutrum orci. Massa vel sem pretium efficitur. Suspendisse potenti.'
+    error: null
   };
   render() {
     const { articles, isLoading, error, paragraph } = this.state;
@@ -32,9 +30,7 @@ class ArticleList extends Component {
           </div>
           <h3 className="text-white">ᔕOᖇT ᗩᖇTIᑕᒪEᔕ</h3>
           <Sorter fetchArticles={this.fetchArticles} />
-          <div>
-            <p className=" text-white">{paragraph.slice(0, 50)} cont.....</p>
-          </div>
+
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}
